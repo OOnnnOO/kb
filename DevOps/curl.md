@@ -21,6 +21,13 @@ curl --head http://example.com
 curl -I http://example.com
 ```
 
+`--header` `-H` 设置请求头信息
+
+```
+# 模拟设置请求源域名
+curl -H "Origin: http://www.google.com" -X POST -d "page=1" http://example.com
+```
+
 `-o` 输出内容到文件，另存为
 
 ```
@@ -33,30 +40,32 @@ curl http://example.com/hello.txt -o hello.txt
 curl -o http://example.com /hello.txt
 ```
 
-`-d` post请求中的data
+`-d` 设置POST请求中的data
 
-post请求
+POST请求
 
 ```
 curl -d "title=hello&&body=hello world" http://
 ```
 
-`-X` 设置请求方式
+`-X` 设置请求方式
 
 put请求
 
 ```
-curl -X put -d "title=hello&&body=hello world" http://
+curl -X PUT -d "title=hello&&body=hello world" http://
 ```
 
-`-L`  跟踪跳转（Follow redirects）
+`-L` 跟踪跳转（Follow redirects）
 
 ```
 curl http://google.com
 curl -L http://google.com
 ```
 
-`-u` 上传
+`-u` 文件传输
+
+上传
 
 ```
 curl -u user@example.com:123456 -T hello.txt ftp://ftp.expample.com
